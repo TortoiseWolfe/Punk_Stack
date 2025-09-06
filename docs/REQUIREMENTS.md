@@ -121,9 +121,9 @@ A design system featuring three distinct punk aesthetics (cyberpunk, solarpunk, 
 ## Constraints
 
 ### Technical Constraints
-- Must use Next.js 14+ App Router
-- Must use DaisyUI for base components
-- Must use Tailwind CSS for styling
+- Must use Next.js 15+ App Router
+- Must use DaisyUI 5+ for base components
+- Must use Tailwind CSS 4+ for styling
 - Must support SSR/SSG
 
 ### Design Constraints
@@ -135,14 +135,14 @@ A design system featuring three distinct punk aesthetics (cyberpunk, solarpunk, 
 ## Dependencies
 
 ### Core Dependencies
-- Next.js 14+
-- React 18+
-- Tailwind CSS 3+
-- DaisyUI 4+
+- Next.js 15.5+
+- React 19+
+- Tailwind CSS 4.1+
+- DaisyUI 5+
 - TypeScript 5+
 
 ### Development Dependencies
-- Vitest for testing
+- Vitest 3+ for testing
 - Playwright for E2E
 - Storybook for component development
 - Husky for git hooks

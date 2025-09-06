@@ -33,8 +33,8 @@
 ├─────────────────────────────────────────────────────────┤
 │                    Foundation Layer                       │
 │  ┌─────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │   Next.js   │  │   Tailwind   │  │   DaisyUI    │  │
-│  │  App Router │  │     CSS      │  │  Components  │  │
+│  │  Next.js 15 │  │ Tailwind CSS │  │  DaisyUI 5   │  │
+│  │  App Router │  │      4.1     │  │  Components  │  │
 │  └─────────────┘  └──────────────┘  └──────────────┘  │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -408,11 +408,11 @@ interface ErrorBoundary {
 **Consequences**: Less out-of-box components
 
 ### ADR-003: App Router over Pages Router
-**Decision**: Use Next.js App Router
-**Rationale**: Better layouts, streaming, server components
-**Consequences**: Newer API, less community resources
+**Decision**: Use Next.js 15 App Router
+**Rationale**: Better layouts, streaming, server components, Turbopack support
+**Consequences**: Latest API, growing community resources
 
-### ADR-004: Vitest over Jest
-**Decision**: Use Vitest for testing
-**Rationale**: Faster, better TypeScript support
-**Consequences**: Different API, less plugins
+### ADR-004: Vitest 3 over Jest
+**Decision**: Use Vitest 3 for testing
+**Rationale**: 100x faster incremental builds, better TypeScript support, Vite integration
+**Consequences**: Modern API, growing plugin ecosystem
