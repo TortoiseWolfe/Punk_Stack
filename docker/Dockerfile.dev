@@ -1,0 +1,32 @@
+# Development Dockerfile
+# Optimized for development with hot reload and debugging
+
+FROM node:20-alpine
+
+# Install development tools
+RUN apk add --no-cache libc6-compat git
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm install
+
+# Copy application code
+COPY --chown=node:node . .
+
+# Create .next directory with proper permissions
+RUN mkdir -p .next && chown -R node:node .next
+
+# Expose ports
+EXPOSE 3000
+# Next.js dev server websocket port for hot reload
+EXPOSE 3001
+
+# Run as node user for security (even in development)
+USER node
+
+# Development command (will be overridden by docker-compose)
+CMD ["npm", "run", "dev"]

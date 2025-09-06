@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Development service
+  dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount source code for hot reload
+      - .:/app
+      # Use anonymous volume for node_modules to avoid conflicts
+      - /app/node_modules
+      # Mount Next.js cache for faster rebuilds
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true  # For file watching in Docker
+    command: npm run dev
+    networks:
+      - punk-stack
+
+  # Production service (for local testing)
+  prod:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - punk-stack
+    profiles:
+      - production
+
+  # Test runner service
+  test:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+    command: npm test
+    networks:
+      - punk-stack
+    profiles:
+      - testing
+
+networks:
+  punk-stack:
+    driver: bridge
+
+# Volumes for persistent data
+volumes:
+  node_modules:
+  next_cache:
