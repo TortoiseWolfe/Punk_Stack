@@ -6,14 +6,19 @@ A modern design system featuring six punk aesthetics with light/dark modes, buil
 
 ```
 /
-├── docs/               # Documentation
-│   ├── prp/           # Punk Rock Prompts (specifications)
-│   │   ├── active/    # Current implementation specs
-│   │   └── archive/   # Completed specs
-│   ├── decisions/     # Architecture Decision Records
-│   └── learnings/     # Lessons learned
-├── test/              # Test suite (TDD approach)
-└── src/               # Implementation (coming soon)
+├── docker/            # Docker configuration
+│   ├── Dockerfile     # Production multi-stage build
+│   ├── Dockerfile.dev # Development configuration
+│   └── .dockerignore  # Build context exclusions
+├── docs/              # Documentation
+│   ├── prp/          # Punk Rock Prompts (specifications)
+│   │   ├── active/   # Current implementation specs
+│   │   └── archive/  # Completed specs
+│   ├── decisions/    # Architecture Decision Records
+│   └── learnings/    # Lessons learned
+├── test/             # Test suite (TDD approach)
+├── public/           # Static assets
+└── src/              # Implementation (coming soon)
 ```
 
 ## PRP Workflow
@@ -104,7 +109,7 @@ The project is configured for automatic deployment to GitHub Pages:
 
 ```bash
 # Build production image
-docker build -t punk-stack:latest .
+docker build -f docker/Dockerfile -t punk-stack:latest .
 
 # Run production container
 docker run -p 3000:3000 punk-stack:latest
