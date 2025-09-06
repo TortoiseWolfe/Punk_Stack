@@ -1,0 +1,264 @@
+export interface Theme {
+  name: string;
+  label: string;
+  category: 'cyberpunk' | 'solarpunk' | 'steampunk' | 'vaporwave' | 'dieselpunk' | 'biopunk';
+  mode: 'light' | 'dark';
+  colors: {
+    primary: string;
+    secondary: string;
+    accent: string;
+    neutral: string;
+    'base-100': string;
+    'base-200': string;
+    'base-300': string;
+    info: string;
+    success: string;
+    warning: string;
+    error: string;
+  };
+}
+
+export const themes: Record<string, Theme> = {
+  // Cyberpunk themes
+  'neon-day': {
+    name: 'neon-day',
+    label: 'Neon Day',
+    category: 'cyberpunk',
+    mode: 'light',
+    colors: {
+      primary: '#ff00ff',
+      secondary: '#00ffff',
+      accent: '#ffff00',
+      neutral: '#2a2e37',
+      'base-100': '#ffffff',
+      'base-200': '#f2f2f2',
+      'base-300': '#e5e5e5',
+      info: '#3abff8',
+      success: '#36d399',
+      warning: '#fbbd23',
+      error: '#f87272',
+    },
+  },
+  'neon-noir': {
+    name: 'neon-noir',
+    label: 'Neon Noir',
+    category: 'cyberpunk',
+    mode: 'dark',
+    colors: {
+      primary: '#ff00ff',
+      secondary: '#00ffff',
+      accent: '#ffff00',
+      neutral: '#1a1a1a',
+      'base-100': '#0a0a0a',
+      'base-200': '#141414',
+      'base-300': '#1f1f1f',
+      info: '#3abff8',
+      success: '#36d399',
+      warning: '#fbbd23',
+      error: '#f87272',
+    },
+  },
+
+  // Solarpunk themes
+  'solar-bloom': {
+    name: 'solar-bloom',
+    label: 'Solar Bloom',
+    category: 'solarpunk',
+    mode: 'light',
+    colors: {
+      primary: '#65a30d',
+      secondary: '#f59e0b',
+      accent: '#10b981',
+      neutral: '#374151',
+      'base-100': '#fefce8',
+      'base-200': '#fef3c7',
+      'base-300': '#fde68a',
+      info: '#06b6d4',
+      success: '#22c55e',
+      warning: '#eab308',
+      error: '#ef4444',
+    },
+  },
+  'forest-canopy': {
+    name: 'forest-canopy',
+    label: 'Forest Canopy',
+    category: 'solarpunk',
+    mode: 'dark',
+    colors: {
+      primary: '#84cc16',
+      secondary: '#facc15',
+      accent: '#34d399',
+      neutral: '#1f2937',
+      'base-100': '#064e3b',
+      'base-200': '#065f46',
+      'base-300': '#047857',
+      info: '#0891b2',
+      success: '#10b981',
+      warning: '#f59e0b',
+      error: '#dc2626',
+    },
+  },
+
+  // Steampunk themes
+  'brass-copper': {
+    name: 'brass-copper',
+    label: 'Brass & Copper',
+    category: 'steampunk',
+    mode: 'light',
+    colors: {
+      primary: '#b45309',
+      secondary: '#92400e',
+      accent: '#d97706',
+      neutral: '#44403c',
+      'base-100': '#fef3c7',
+      'base-200': '#fed7aa',
+      'base-300': '#fdba74',
+      info: '#0284c7',
+      success: '#16a34a',
+      warning: '#f59e0b',
+      error: '#dc2626',
+    },
+  },
+  'victorian-noir': {
+    name: 'victorian-noir',
+    label: 'Victorian Noir',
+    category: 'steampunk',
+    mode: 'dark',
+    colors: {
+      primary: '#ea580c',
+      secondary: '#7c2d12',
+      accent: '#f97316',
+      neutral: '#1c1917',
+      'base-100': '#292524',
+      'base-200': '#44403c',
+      'base-300': '#57534e',
+      info: '#0ea5e9',
+      success: '#22c55e',
+      warning: '#facc15',
+      error: '#f87171',
+    },
+  },
+
+  // Vaporwave themes
+  'miami-sunrise': {
+    name: 'miami-sunrise',
+    label: 'Miami Sunrise',
+    category: 'vaporwave',
+    mode: 'light',
+    colors: {
+      primary: '#ec4899',
+      secondary: '#a855f7',
+      accent: '#06b6d4',
+      neutral: '#581c87',
+      'base-100': '#fdf4ff',
+      'base-200': '#fae8ff',
+      'base-300': '#f5d0fe',
+      info: '#0ea5e9',
+      success: '#10b981',
+      warning: '#f59e0b',
+      error: '#ef4444',
+    },
+  },
+  'retro-night': {
+    name: 'retro-night',
+    label: 'Retro Night',
+    category: 'vaporwave',
+    mode: 'dark',
+    colors: {
+      primary: '#f472b6',
+      secondary: '#c084fc',
+      accent: '#22d3ee',
+      neutral: '#1e1b4b',
+      'base-100': '#1e1b4b',
+      'base-200': '#312e81',
+      'base-300': '#4c1d95',
+      info: '#38bdf8',
+      success: '#34d399',
+      warning: '#facc15',
+      error: '#fb7185',
+    },
+  },
+
+  // Dieselpunk themes
+  'art-deco': {
+    name: 'art-deco',
+    label: 'Art Deco',
+    category: 'dieselpunk',
+    mode: 'light',
+    colors: {
+      primary: '#b91c1c',
+      secondary: '#1e40af',
+      accent: '#facc15',
+      neutral: '#1f2937',
+      'base-100': '#f5f5f4',
+      'base-200': '#e7e5e4',
+      'base-300': '#d6d3d1',
+      info: '#2563eb',
+      success: '#16a34a',
+      warning: '#eab308',
+      error: '#dc2626',
+    },
+  },
+  'noir-industrial': {
+    name: 'noir-industrial',
+    label: 'Noir Industrial',
+    category: 'dieselpunk',
+    mode: 'dark',
+    colors: {
+      primary: '#ef4444',
+      secondary: '#3b82f6',
+      accent: '#fbbf24',
+      neutral: '#111827',
+      'base-100': '#18181b',
+      'base-200': '#27272a',
+      'base-300': '#3f3f46',
+      info: '#60a5fa',
+      success: '#4ade80',
+      warning: '#fde047',
+      error: '#f87171',
+    },
+  },
+
+  // Biopunk themes
+  'lab-bright': {
+    name: 'lab-bright',
+    label: 'Lab Bright',
+    category: 'biopunk',
+    mode: 'light',
+    colors: {
+      primary: '#10b981',
+      secondary: '#8b5cf6',
+      accent: '#14b8a6',
+      neutral: '#064e3b',
+      'base-100': '#f0fdf4',
+      'base-200': '#dcfce7',
+      'base-300': '#bbf7d0',
+      info: '#06b6d4',
+      success: '#22c55e',
+      warning: '#eab308',
+      error: '#f43f5e',
+    },
+  },
+  'toxic-glow': {
+    name: 'toxic-glow',
+    label: 'Toxic Glow',
+    category: 'biopunk',
+    mode: 'dark',
+    colors: {
+      primary: '#22c55e',
+      secondary: '#a78bfa',
+      accent: '#2dd4bf',
+      neutral: '#022c22',
+      'base-100': '#022c22',
+      'base-200': '#064e3b',
+      'base-300': '#065f46',
+      info: '#22d3ee',
+      success: '#4ade80',
+      warning: '#facc15',
+      error: '#fb7185',
+    },
+  },
+};
+
+export const themeNames = Object.keys(themes) as Array<keyof typeof themes>;
+export const defaultTheme = 'neon-noir';
