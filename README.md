@@ -1,24 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Punk Stack
+
+A modern design system featuring 12 distinct themes (6 punk aesthetics × 2 modes) built with Next.js, TypeScript, Tailwind CSS, and DaisyUI.
+
+## Prerequisites
+
+- Docker and Docker Compose
+- Git
 
 ## Getting Started
 
-First, run the development server:
+This is a **Docker-first** project. All development should happen through Docker containers to ensure consistency across environments.
+
+### Start Development Server
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Start the development environment
+docker compose up dev
+
+# Or run in background
+docker compose up -d dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application auto-updates as you edit files thanks to volume mounts and hot reload configuration.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Other Commands
+
+```bash
+# Run tests
+docker compose run --rm test
+
+# Build production image (local testing)
+docker compose --profile production up prod
+
+# Stop all containers
+docker compose down
+
+# Rebuild containers (after dependency changes)
+docker compose build dev
+```
+
+## Project Structure
+
+- `app/` - Next.js App Router pages and layouts
+- `components/` - Reusable UI components
+- `lib/` - Utilities, hooks, and theme definitions
+- `test/` - Test files following TDD approach
+- `docker/` - Docker configuration files
+- `docs/` - Project documentation
 
 ## Learn More
 
