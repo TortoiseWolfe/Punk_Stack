@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+/* Enable DaisyUI - this includes all component styles */
+@plugin "daisyui";
+
+/* Cyberpunk Themes */
+@plugin "daisyui/theme" {
+  name: "neon-day";
+  --color-primary: oklch(75% 0.18 330);       /* Pink */
+  --color-secondary: oklch(70% 0.15 195);     /* Cyan */
+  --color-accent: oklch(70% 0.15 270);        /* Purple */
+  --color-neutral: oklch(90% 0.01 220);       /* Light neutral */
+  --color-base-100: oklch(100% 0 0);          /* White */
+  --color-base-200: oklch(96% 0.01 220);      /* Light gray */
+  --color-base-300: oklch(89% 0.01 220);      /* Gray */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for proper contrast */
+  --color-base-content: oklch(20% 0 0);       /* Near black for white bg */
+  --color-primary-content: oklch(95% 0 0);    /* White on pink */
+  --color-secondary-content: oklch(95% 0 0);  /* White on cyan */
+  --color-accent-content: oklch(95% 0 0);     /* White on purple */
+  --color-neutral-content: oklch(20% 0 0);    /* Dark on light neutral */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+@plugin "daisyui/theme" {
+  name: "neon-noir";
+  --color-primary: oklch(75% 0.18 330);       /* Neon pink */
+  --color-secondary: oklch(70% 0.15 195);     /* Neon cyan */
+  --color-accent: oklch(70% 0.15 270);        /* Neon purple */
+  --color-neutral: oklch(30% 0.01 220);       /* Dark neutral */
+  --color-base-100: oklch(15% 0.02 222);      /* Dark base */
+  --color-base-200: oklch(12% 0.02 222);      /* Darker */
+  --color-base-300: oklch(8% 0.02 222);       /* Darkest */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for proper contrast on dark backgrounds */
+  --color-base-content: oklch(90% 0 0);       /* Near white for dark bg */
+  --color-primary-content: oklch(95% 0 0);    /* White on bright pink */
+  --color-secondary-content: oklch(95% 0 0);  /* White on bright cyan */
+  --color-accent-content: oklch(95% 0 0);     /* White on bright purple */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark neutral */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+/* Solarpunk Themes */
+@plugin "daisyui/theme" {
+  name: "solar-bloom";
+  --color-primary: oklch(60% 0.15 145);       /* Green */
+  --color-secondary: oklch(70% 0.15 200);     /* Ocean blue */
+  --color-accent: oklch(80% 0.20 90);         /* Sunlight gold */
+  --color-neutral: oklch(85% 0.01 145);       /* Light natural */
+  --color-base-100: oklch(97% 0.02 85);       /* Light cream */
+  --color-base-200: oklch(92% 0.03 145);      /* Soft green */
+  --color-base-300: oklch(88% 0.03 145);      /* Medium green */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors */
+  --color-base-content: oklch(25% 0.01 145);  /* Dark green-gray */
+  --color-primary-content: oklch(95% 0 0);    /* White on green */
+  --color-secondary-content: oklch(95% 0 0);  /* White on blue */
+  --color-accent-content: oklch(20% 0 0);     /* Dark on gold */
+  --color-neutral-content: oklch(25% 0 0);    /* Dark on light */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+@plugin "daisyui/theme" {
+  name: "forest-canopy";
+  --color-primary: oklch(50% 0.15 145);       /* Deep green */
+  --color-secondary: oklch(70% 0.20 85);      /* Golden */
+  --color-accent: oklch(70% 0.15 200);        /* Sky blue */
+  --color-neutral: oklch(25% 0.01 145);       /* Dark natural */
+  --color-base-100: oklch(20% 0.03 145);      /* Dark forest */
+  --color-base-200: oklch(15% 0.03 145);      /* Deeper forest */
+  --color-base-300: oklch(10% 0.03 145);      /* Deepest forest */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for dark forest theme */
+  --color-base-content: oklch(88% 0.01 145);  /* Light green-white */
+  --color-primary-content: oklch(95% 0 0);    /* White on green */
+  --color-secondary-content: oklch(20% 0 0);  /* Dark on golden */
+  --color-accent-content: oklch(95% 0 0);     /* White on sky blue */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+/* Steampunk Themes */
+@plugin "daisyui/theme" {
+  name: "brass-copper";
+  --color-primary: oklch(60% 0.15 50);        /* Brass */
+  --color-secondary: oklch(65% 0.12 35);      /* Copper */
+  --color-accent: oklch(75% 0.18 80);         /* Gold */
+  --color-neutral: oklch(25% 0.01 30);        /* Dark brass */
+  --color-base-100: oklch(95% 0.02 50);       /* Light brass bg */
+  --color-base-200: oklch(90% 0.02 50);       /* Medium brass */
+  --color-base-300: oklch(85% 0.02 50);       /* Darker brass */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors */
+  --color-base-content: oklch(25% 0.01 50);   /* Dark brass */
+  --color-primary-content: oklch(95% 0 0);    /* White on brass */
+  --color-secondary-content: oklch(95% 0 0);  /* White on copper */
+  --color-accent-content: oklch(20% 0 0);     /* Dark on gold */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+@plugin "daisyui/theme" {
+  name: "victorian-noir";
+  --color-primary: oklch(40% 0.10 15);        /* Deep burgundy */
+  --color-secondary: oklch(35% 0.08 40);      /* Dark brass */
+  --color-accent: oklch(50% 0.10 70);         /* Tarnished gold */
+  --color-neutral: oklch(20% 0.01 0);         /* Very dark */
+  --color-base-100: oklch(12% 0.02 0);        /* Almost black */
+  --color-base-200: oklch(9% 0.02 0);         /* Darker */
+  --color-base-300: oklch(6% 0.02 0);         /* Darkest */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for very dark theme */
+  --color-base-content: oklch(85% 0.01 0);    /* Light gray */
+  --color-primary-content: oklch(90% 0 0);    /* Light on burgundy */
+  --color-secondary-content: oklch(90% 0 0);  /* Light on dark brass */
+  --color-accent-content: oklch(90% 0 0);     /* Light on gold */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+/* Vaporwave Themes */
+@plugin "daisyui/theme" {
+  name: "miami-sunrise";
+  --color-primary: oklch(70% 0.20 330);       /* Hot pink */
+  --color-secondary: oklch(65% 0.15 180);     /* Turquoise */
+  --color-accent: oklch(70% 0.18 50);         /* Orange */
+  --color-neutral: oklch(25% 0.01 330);       /* Dark pink-gray */
+  --color-base-100: oklch(98% 0.02 330);      /* Very light pink */
+  --color-base-200: oklch(95% 0.02 330);      /* Light pink */
+  --color-base-300: oklch(92% 0.02 330);      /* Medium pink */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors */
+  --color-base-content: oklch(20% 0.01 330);  /* Dark pink-gray */
+  --color-primary-content: oklch(95% 0 0);    /* White on pink */
+  --color-secondary-content: oklch(95% 0 0);  /* White on turquoise */
+  --color-accent-content: oklch(20% 0 0);     /* Dark on orange */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+@plugin "daisyui/theme" {
+  name: "retro-night";
+  --color-primary: oklch(55% 0.15 330);       /* Deep pink */
+  --color-secondary: oklch(45% 0.12 180);     /* Dark turquoise */
+  --color-accent: oklch(60% 0.15 40);         /* Burnt orange */
+  --color-neutral: oklch(25% 0.01 240);       /* Dark blue-gray */
+  --color-base-100: oklch(18% 0.02 240);      /* Dark blue */
+  --color-base-200: oklch(13% 0.02 240);      /* Darker blue */
+  --color-base-300: oklch(8% 0.02 240);       /* Darkest blue */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for dark retro theme */
+  --color-base-content: oklch(88% 0.01 240);  /* Light blue-white */
+  --color-primary-content: oklch(95% 0 0);    /* White on pink */
+  --color-secondary-content: oklch(95% 0 0);  /* White on turquoise */
+  --color-accent-content: oklch(95% 0 0);     /* White on orange */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+/* Dieselpunk Themes */
+@plugin "daisyui/theme" {
+  name: "art-deco";
+  --color-primary: oklch(80% 0.20 85);        /* Gold */
+  --color-secondary: oklch(60% 0.02 210);     /* Silver gray */
+  --color-accent: oklch(65% 0.18 50);         /* Bronze */
+  --color-neutral: oklch(30% 0.01 210);       /* Dark gray */
+  --color-base-100: oklch(96% 0.02 85);       /* Cream */
+  --color-base-200: oklch(92% 0.02 85);       /* Light gold */
+  --color-base-300: oklch(88% 0.02 85);       /* Medium gold */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors */
+  --color-base-content: oklch(20% 0.01 85);   /* Dark gold-gray */
+  --color-primary-content: oklch(20% 0 0);    /* Dark on gold */
+  --color-secondary-content: oklch(95% 0 0);  /* White on gray */
+  --color-accent-content: oklch(95% 0 0);     /* White on bronze */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+@plugin "daisyui/theme" {
+  name: "noir-industrial";
+  --color-primary: oklch(55% 0.12 70);        /* Dark gold */
+  --color-secondary: oklch(45% 0.01 210);     /* Industrial gray */
+  --color-accent: oklch(50% 0.15 45);         /* Dark bronze */
+  --color-neutral: oklch(20% 0.01 210);       /* Very dark gray */
+  --color-base-100: oklch(10% 0.01 210);      /* Near black */
+  --color-base-200: oklch(7% 0.01 210);       /* Darker */
+  --color-base-300: oklch(4% 0.01 210);       /* Darkest */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for industrial dark theme */
+  --color-base-content: oklch(87% 0.01 210);  /* Light gray */
+  --color-primary-content: oklch(95% 0 0);    /* White on dark gold */
+  --color-secondary-content: oklch(95% 0 0);  /* White on gray */
+  --color-accent-content: oklch(95% 0 0);     /* White on bronze */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+/* Biopunk Themes */
+@plugin "daisyui/theme" {
+  name: "lab-bright";
+  --color-primary: oklch(65% 0.15 165);       /* Teal */
+  --color-secondary: oklch(70% 0.15 195);     /* Cyan */
+  --color-accent: oklch(75% 0.18 115);        /* Lime */
+  --color-neutral: oklch(25% 0.01 165);       /* Dark teal-gray */
+  --color-base-100: oklch(100% 0 0);          /* Pure white */
+  --color-base-200: oklch(97% 0.02 165);      /* Very light teal */
+  --color-base-300: oklch(94% 0.02 165);      /* Light teal */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors */
+  --color-base-content: oklch(20% 0.01 165);  /* Dark teal-gray */
+  --color-primary-content: oklch(95% 0 0);    /* White on teal */
+  --color-secondary-content: oklch(95% 0 0);  /* White on cyan */
+  --color-accent-content: oklch(20% 0 0);     /* Dark on lime */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}
+
+@plugin "daisyui/theme" {
+  name: "toxic-glow";
+  --color-primary: oklch(85% 0.20 145);       /* Bright green */
+  --color-secondary: oklch(70% 0.18 185);     /* Cyan glow */
+  --color-accent: oklch(90% 0.20 115);        /* Toxic yellow-green */
+  --color-neutral: oklch(20% 0.02 145);       /* Dark green */
+  --color-base-100: oklch(10% 0.03 145);      /* Very dark green */
+  --color-base-200: oklch(7% 0.03 145);       /* Darker green */
+  --color-base-300: oklch(4% 0.03 145);       /* Darkest green */
+  --color-info: oklch(66% 0.15 230);
+  --color-success: oklch(70% 0.15 150);
+  --color-warning: oklch(75% 0.15 60);
+  --color-error: oklch(65% 0.20 30);
+  /* Content colors for toxic dark theme */
+  --color-base-content: oklch(90% 0.02 145);  /* Light green-white */
+  --color-primary-content: oklch(10% 0 0);    /* Dark on bright green */
+  --color-secondary-content: oklch(95% 0 0);  /* White on cyan */
+  --color-accent-content: oklch(10% 0 0);     /* Dark on yellow-green */
+  --color-neutral-content: oklch(90% 0 0);    /* Light on dark */
+  --color-info-content: oklch(95% 0 0);
+  --color-success-content: oklch(95% 0 0);
+  --color-warning-content: oklch(20% 0 0);
+  --color-error-content: oklch(95% 0 0);
+}

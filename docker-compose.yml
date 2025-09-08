@@ -16,7 +16,6 @@ services:
       # Mount Next.js cache for faster rebuilds
       - /app/.next
     environment:
-      - NODE_ENV=development
       - WATCHPACK_POLLING=true  # For file watching in Docker
     command: npm run dev
     networks:
@@ -45,7 +44,7 @@ services:
       - .:/app
       - /app/node_modules
     environment:
-      - NODE_ENV=test
+      - CI=true  # For test environment
     command: npm test
     networks:
       - punk-stack
@@ -65,7 +64,7 @@ services:
     environment:
       - GITHUB_PAGES=true
       - NODE_ENV=production
-    command: sh -c "npm run build && npx serve out -p 3000"
+    command: npx serve out -p 3000 --single
     networks:
       - punk-stack
     profiles:
