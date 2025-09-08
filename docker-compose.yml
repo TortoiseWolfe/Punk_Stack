@@ -52,6 +52,25 @@ services:
     profiles:
       - testing
 
+  # GitHub Pages test service (mimics static deployment)
+  github-pages:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    ports:
+      - "3002:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - GITHUB_PAGES=true
+      - NODE_ENV=production
+    command: sh -c "npm run build && npx serve out -p 3000"
+    networks:
+      - punk-stack
+    profiles:
+      - github-pages
+
 networks:
   punk-stack:
     driver: bridge
