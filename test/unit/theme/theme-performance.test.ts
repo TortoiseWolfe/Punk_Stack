@@ -52,6 +52,14 @@ describe('Theme System Performance', () => {
       const themes = ['neon-day', 'neon-noir', 'solar-bloom', 'forest-canopy'];
       const switchTimes: number[] = [];
       
+      // Mock performance.now() for each theme switch
+      let mockTime = 0;
+      performance.now = vi.fn(() => {
+        const currentTime = mockTime;
+        mockTime += 25; // Each switch takes 25ms
+        return currentTime;
+      });
+      
       themes.forEach(theme => {
         const start = performance.now();
         document.documentElement.setAttribute('data-theme', theme);
