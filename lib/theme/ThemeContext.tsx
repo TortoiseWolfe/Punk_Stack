@@ -26,10 +26,45 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (mounted) {
+      const startTime = performance.now();
+      
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Disable transitions if user prefers reduced motion
+      if (prefersReducedMotion) {
+        document.documentElement.style.transition = 'none';
+      }
+      
       document.documentElement.setAttribute('data-theme', theme);
       if (typeof window !== 'undefined' && window.localStorage) {
         localStorage.setItem('punk-stack-theme', theme);
       }
+      
+      // Re-enable transitions after a frame
+      if (prefersReducedMotion) {
+        requestAnimationFrame(() => {
+          document.documentElement.style.transition = '';
+        });
+      }
+      
+      // Log performance for PRP-01 requirement (<100ms)
+      const switchTime = performance.now() - startTime;
+      if (switchTime > 100) {
+        console.warn(`Theme switch took ${switchTime.toFixed(2)}ms (target: <100ms)`);
+      } else {
+        console.debug(`Theme switch completed in ${switchTime.toFixed(2)}ms ✓`);
+      }
+      
+      // Announce to screen readers
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.setAttribute('aria-atomic', 'true');
+      announcement.className = 'sr-only';
+      announcement.textContent = `Theme changed to ${theme}`;
+      document.body.appendChild(announcement);
+      setTimeout(() => announcement.remove(), 1000);
       
       // Broadcast theme change to other tabs
       try {

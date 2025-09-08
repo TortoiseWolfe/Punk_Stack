@@ -9,7 +9,9 @@ import { ThemeContext } from '@/lib/theme/ThemeContext';
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [previewTheme, setPreviewTheme] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const originalThemeRef = useRef<string>(DEFAULT_THEME);
   
   // Get context safely
   const context = useContext(ThemeContext);
@@ -24,12 +26,22 @@ export function ThemeSwitcher() {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        // Restore original theme if previewing
+        if (previewTheme) {
+          document.documentElement.setAttribute('data-theme', originalThemeRef.current);
+          setPreviewTheme(null);
+        }
       }
     };
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsOpen(false);
+        // Restore original theme if previewing
+        if (previewTheme) {
+          document.documentElement.setAttribute('data-theme', originalThemeRef.current);
+          setPreviewTheme(null);
+        }
       }
     };
 
@@ -42,7 +54,7 @@ export function ThemeSwitcher() {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isOpen]);
+  }, [isOpen, previewTheme]);
 
   if (!mounted) {
     // Return a placeholder during SSR
@@ -97,6 +109,23 @@ export function ThemeSwitcher() {
                         onClick={() => {
                           setTheme(themeName);
                           setIsOpen(false);
+                          setPreviewTheme(null);
+                        }}
+                        onMouseEnter={() => {
+                          // Store current theme before preview
+                          if (!previewTheme) {
+                            originalThemeRef.current = theme;
+                          }
+                          setPreviewTheme(themeName);
+                          // Apply preview theme
+                          document.documentElement.setAttribute('data-theme', themeName);
+                        }}
+                        onMouseLeave={() => {
+                          // Restore original theme
+                          if (previewTheme) {
+                            document.documentElement.setAttribute('data-theme', originalThemeRef.current);
+                            setPreviewTheme(null);
+                          }
                         }}
                         className={`
                           px-3 py-2 text-sm rounded-md transition-all
