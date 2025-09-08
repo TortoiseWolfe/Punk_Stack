@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/lib/theme/ThemeContext";
+import { UpdateNotification } from "@/components/UpdateNotification";
+import { OfflineIndicator } from "@/components/OfflineIndicator";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Punk Stack Design System",
   description: "A modern design system featuring 12 distinct punk themes",
+  manifest: "/manifest.json",
+  themeColor: "#000000",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 
 export default function RootLayout({
@@ -30,6 +35,8 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {children}
+          <UpdateNotification />
+          <OfflineIndicator />
         </ThemeProvider>
       </body>
     </html>
