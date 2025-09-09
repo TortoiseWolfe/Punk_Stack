@@ -1,7 +1,7 @@
 'use client';
 
 import { LabelHTMLAttributes, forwardRef } from 'react';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 
 export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   required?: boolean;

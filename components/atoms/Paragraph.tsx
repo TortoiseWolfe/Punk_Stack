@@ -1,7 +1,7 @@
 'use client';
 
 import { HTMLAttributes, forwardRef } from 'react';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl';

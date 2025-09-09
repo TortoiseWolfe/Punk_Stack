@@ -58,12 +58,13 @@ export interface AlertTitleProps extends HTMLAttributes<HTMLHeadingElement> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
 }
 
-export const AlertTitle = forwardRef<HTMLElement, AlertTitleProps>(
+export const AlertTitle = forwardRef<HTMLHeadingElement, AlertTitleProps>(
   ({ as: Component = 'span', className, children, ...props }, ref) => {
     const classes = clsx('font-semibold', className);
 
     return (
-      <Component ref={ref} className={classes} {...props}>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      <Component ref={ref as any} className={classes} {...props}>
         {children}
       </Component>
     );
@@ -72,7 +73,7 @@ export const AlertTitle = forwardRef<HTMLElement, AlertTitleProps>(
 
 AlertTitle.displayName = 'AlertTitle';
 
-export interface AlertDescriptionProps extends HTMLAttributes<HTMLDivElement> {}
+export type AlertDescriptionProps = HTMLAttributes<HTMLDivElement>
 
 export const AlertDescription = forwardRef<HTMLDivElement, AlertDescriptionProps>(
   ({ className, children, ...props }, ref) => {

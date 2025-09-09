@@ -3,9 +3,9 @@
 import { forwardRef } from 'react';
 import { Input, InputProps } from '@/components/atoms/Input';
 import { Label } from '@/components/atoms/Label';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 
-export interface FormFieldProps extends InputProps {
+export interface FormFieldProps extends Omit<InputProps, 'error'> {
   label?: string;
   error?: string;
   hint?: string;

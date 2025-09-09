@@ -94,7 +94,7 @@ export const ModalBox = forwardRef<HTMLDivElement, ModalBoxProps>(
 
 ModalBox.displayName = 'ModalBox';
 
-export interface ModalHeaderProps extends HTMLAttributes<HTMLDivElement> {}
+export type ModalHeaderProps = HTMLAttributes<HTMLDivElement>
 
 export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   ({ className, children, ...props }, ref) => {

@@ -11,7 +11,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ variant = 'normal', padding = 'normal', glass = false, className, children, ...props }, ref) => {
+  ({ variant = 'normal', glass = false, className, children, ...props }, ref) => {
     const classes = clsx(
       'card',
       variant === 'compact' && 'card-compact',
@@ -113,6 +113,7 @@ export const CardImage = forwardRef<HTMLElement, CardImageProps>(
 
     return (
       <figure ref={ref} className={classes} {...props}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} alt={alt} />
         {children}
       </figure>

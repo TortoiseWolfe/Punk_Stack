@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 import { Card, CardBody, CardTitle, CardActions, CardImage } from './Card';
 import { Button } from '../atoms/Button';
 import { Badge } from '../atoms/Badge';
