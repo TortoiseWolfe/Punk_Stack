@@ -31,12 +31,13 @@
 - GPU-accelerated animations
 - Reduced motion support
 
-### PRP-06: Font Architecture
-**New from analysis**: Theme-aware font system
-- CSS variable font system
-- Theme-specific font pairings
-- WCAG AA compliance for all combinations
-- Font loading optimization
+### PRP-06: Theme and Mode Separation
+**High Priority**: Improve theme UX by separating style from mode
+- Separate punk style selector from light/dark toggle
+- System dark mode preference detection
+- Keyboard shortcuts for quick mode toggle
+- Backwards compatible preference migration
+- Storybook toolbar updates
 
 ### PRP-07: State Management & Data
 **Consolidates**: State Management Patterns + original Data Persistence
@@ -46,7 +47,7 @@
 - Offline queue enhancements
 
 ### PRP-08: Performance & Optimization
-**Keeps original PRP-05 scope**
+**Keeps original scope**
 - Bundle optimization
 - Code splitting
 - Lazy loading
@@ -66,6 +67,15 @@
 - Storybook deployment
 - API documentation
 
+### PRP-11: (Reserved for future use)
+
+### PRP-12: Font Architecture
+**Lower Priority**: Theme-aware font system
+- CSS variable font system
+- Theme-specific font pairings
+- WCAG AA compliance for all combinations
+- Font loading optimization
+
 ## Critical Issues to Address
 
 ### Theme Color Audit (High Priority)
@@ -80,13 +90,15 @@
 
 ## Timeline Estimate
 - **Week 1-2**: Complete PRP-03 (Components)
-- **Week 3**: PRP-04 (Testing)
-- **Week 4**: PRP-05 (Effects) + PRP-06 (Fonts)
-- **Week 5**: PRP-07 (State) + PRP-08 (Performance)
-- **Week 6**: PRP-09 (DevEx) + PRP-10 (Deployment)
+- **Week 3**: PRP-06 (Theme/Mode Separation) - High priority UX improvement
+- **Week 4**: PRP-04 (Testing Infrastructure)
+- **Week 5**: PRP-05 (Effects) 
+- **Week 6**: PRP-07 (State) + PRP-08 (Performance)
+- **Week 7**: PRP-09 (DevEx) + PRP-10 (Deployment)
+- **Week 8**: PRP-12 (Font Architecture) - Lower priority enhancement
 
 ## Notes
 - Many original PRPs are already implemented
-- Consolidation reduces 37 PRPs to 10 focused deliverables
+- Consolidation reduces 37 PRPs to 11 focused deliverables
 - Each consolidated PRP maintains original goals but groups related work
 - Priority on completing user-facing features before tooling

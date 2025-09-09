@@ -1,12 +1,8 @@
 'use client';
 
-import { Navigation } from '@/components/Navigation';
-
 export default function ClientPage() {
   return (
     <>
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="hero min-h-[60vh] bg-base-200">
         <div className="hero-content text-center">

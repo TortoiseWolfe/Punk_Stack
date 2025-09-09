@@ -1,3 +1,6 @@
+/* Import Google Fonts for theme typography - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700;800;900&family=Merriweather:wght@300;400;700;900&family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Creepster&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 /* Enable DaisyUI - this includes all component styles */
@@ -27,6 +30,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Cyberpunk tech fonts */
+  --font-sans: 'Orbitron', system-ui, sans-serif;
+  --font-serif: 'Space Mono', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Orbitron', system-ui, sans-serif;
 }
 
 @plugin "daisyui/theme" {
@@ -52,6 +60,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Cyberpunk tech fonts */
+  --font-sans: 'Orbitron', system-ui, sans-serif;
+  --font-serif: 'Space Mono', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Orbitron', system-ui, sans-serif;
 }
 
 /* Solarpunk Themes */
@@ -78,6 +91,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Solarpunk organic fonts */
+  --font-sans: 'Fira Sans', system-ui, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Fira Sans', system-ui, sans-serif;
 }
 
 @plugin "daisyui/theme" {
@@ -103,6 +121,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Solarpunk organic fonts */
+  --font-sans: 'Fira Sans', system-ui, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Fira Sans', system-ui, sans-serif;
 }
 
 /* Steampunk Themes */
@@ -129,6 +152,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Steampunk Victorian fonts */
+  --font-sans: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
 }
 
 @plugin "daisyui/theme" {
@@ -154,6 +182,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Steampunk Victorian fonts */
+  --font-sans: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
 }
 
 /* Vaporwave Themes */
@@ -180,6 +213,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Vaporwave retro fonts */
+  --font-sans: 'Bebas Neue', Impact, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Bebas Neue', Impact, sans-serif;
 }
 
 @plugin "daisyui/theme" {
@@ -205,6 +243,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Vaporwave retro fonts */
+  --font-sans: 'Bebas Neue', Impact, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Bebas Neue', Impact, sans-serif;
 }
 
 /* Dieselpunk Themes */
@@ -231,6 +274,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Dieselpunk industrial fonts */
+  --font-sans: 'Oswald', 'Franklin Gothic', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Oswald', 'Franklin Gothic', sans-serif;
 }
 
 @plugin "daisyui/theme" {
@@ -256,6 +304,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Dieselpunk industrial fonts */
+  --font-sans: 'Oswald', 'Franklin Gothic', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Oswald', 'Franklin Gothic', sans-serif;
 }
 
 /* Biopunk Themes */
@@ -282,6 +335,11 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Biopunk scientific fonts */
+  --font-sans: 'Fira Sans', system-ui, sans-serif;
+  --font-serif: 'Space Mono', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Creepster', cursive, sans-serif;
 }
 
 @plugin "daisyui/theme" {
@@ -307,4 +365,9 @@
   --color-success-content: oklch(95% 0 0);
   --color-warning-content: oklch(20% 0 0);
   --color-error-content: oklch(95% 0 0);
+  /* Typography - Biopunk scientific fonts */
+  --font-sans: 'Fira Sans', system-ui, sans-serif;
+  --font-serif: 'Space Mono', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Creepster', cursive, sans-serif;
 }

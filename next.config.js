@@ -1,10 +1,11 @@
-import withPWAInit from "next-pwa";
+// Conditionally import PWA only if not in Storybook
+const withPWAInit = process.env.SKIP_PWA ? null : await import("next-pwa").then(m => m.default);
 
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
 
-const withPWA = withPWAInit({
+const withPWA = withPWAInit ? withPWAInit({
   dest: "public",
   register: true,
   skipWaiting: true,
@@ -118,7 +119,7 @@ const withPWA = withPWAInit({
   fallbacks: {
     document: '/offline.html',
   },
-});
+}) : (x) => x;
 
 const nextConfig = {
   // GitHub Pages deployment configuration

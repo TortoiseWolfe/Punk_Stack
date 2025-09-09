@@ -1,0 +1,45 @@
+# Build Dockerfile for GitHub Pages deployment
+# Creates static exports for both Next.js app and Storybook
+
+FROM node:20-alpine AS builder
+
+# Install dependencies for building
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including dev for building)
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Build Next.js static export for GitHub Pages
+ENV GITHUB_PAGES=true
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+# Build Storybook into the out directory
+ENV SKIP_PWA=true
+RUN npm run build-storybook -- -o out/storybook
+
+# Stage 2: Export artifacts
+FROM alpine:latest AS exporter
+
+# Install basic tools for artifact handling
+RUN apk add --no-cache tar
+
+WORKDIR /export
+
+# Copy built artifacts
+COPY --from=builder /app/out ./out
+COPY --from=builder /app/public/.nojekyll ./out/.nojekyll
+
+# Create tar archive for easy extraction
+RUN tar -czf build-artifacts.tar.gz out/
+
+# This image is meant to be used with docker cp to extract artifacts
+CMD ["sh", "-c", "echo 'Build artifacts ready at /export/build-artifacts.tar.gz'"]

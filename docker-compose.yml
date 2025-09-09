@@ -51,6 +51,36 @@ services:
     profiles:
       - testing
 
+  # Storybook service
+  storybook:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    ports:
+      - "6006:6006"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - SKIP_PWA=true
+    command: npm run storybook
+    networks:
+      - punk-stack
+    profiles:
+      - storybook
+
+  # Build service for GitHub Pages deployment
+  build:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.build
+    volumes:
+      - ./out:/export/out
+    networks:
+      - punk-stack
+    profiles:
+      - build
+
   # GitHub Pages test service (mimics static deployment)
   github-pages:
     build:

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/lib/theme/ThemeContext";
 import { UpdateNotification } from "@/components/UpdateNotification";
 import { OfflineIndicator } from "@/components/OfflineIndicator";
+import { Navbar } from "@/components/organisms/Navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,8 +20,13 @@ export const metadata: Metadata = {
   title: "Punk Stack Design System",
   description: "A modern design system featuring 12 distinct punk themes",
   manifest: "/manifest.json",
-  themeColor: "#000000",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#000000',
 };
 
 export default function RootLayout({
@@ -34,7 +40,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          {children}
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
           <UpdateNotification />
           <OfflineIndicator />
         </ThemeProvider>
