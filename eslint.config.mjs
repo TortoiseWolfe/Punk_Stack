@@ -19,6 +19,9 @@ const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "public/sw.js",
+    "public/workbox-*.js",
+    "public/fallback-*.js",
   ],
 }, ...storybook.configs["flat/recommended"]];
 

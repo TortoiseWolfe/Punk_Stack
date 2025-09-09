@@ -20,7 +20,7 @@ vi.mock('idb', () => ({
     const stores = new Map();
     
     return Promise.resolve({
-      put: vi.fn((storeName: string, value: any) => {
+      put: vi.fn((storeName: string, value: { id?: string; key?: string; [key: string]: unknown }) => {
         if (!stores.has(storeName)) {
           stores.set(storeName, new Map());
         }
@@ -31,7 +31,7 @@ vi.mock('idb', () => ({
         const store = stores.get(storeName);
         return Promise.resolve(store ? store.get(key) : undefined);
       }),
-      add: vi.fn((storeName: string, value: any) => {
+      add: vi.fn((storeName: string, value: { id: string; [key: string]: unknown }) => {
         if (!stores.has(storeName)) {
           stores.set(storeName, new Map());
         }
@@ -51,11 +51,11 @@ vi.mock('idb', () => ({
         const store = stores.get(storeName);
         return Promise.resolve(store ? Array.from(store.values()) : []);
       }),
-      getAllFromIndex: vi.fn((storeName: string, indexName: string, value: any) => {
+      getAllFromIndex: vi.fn((storeName: string, indexName: string, value: unknown) => {
         const store = stores.get(storeName);
         if (!store) return Promise.resolve([]);
         return Promise.resolve(
-          Array.from(store.values()).filter((item: any) => item[indexName] === value)
+          Array.from(store.values()).filter((item: Record<string, unknown>) => item[indexName] === value)
         );
       }),
       transaction: vi.fn(() => ({

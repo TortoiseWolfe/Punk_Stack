@@ -40,7 +40,7 @@ describe('PWA Manifest', () => {
     
     expect(manifest.icons.length).toBeGreaterThan(0);
     
-    manifest.icons.forEach((icon: any) => {
+    manifest.icons.forEach((icon: { src: string; type: string; sizes?: string }) => {
       expect(icon.src).toBeDefined();
       expect(icon.type).toBeDefined();
       expect(icon.type).toMatch(/^image\/(x-icon|png|svg\+xml)$/);
@@ -73,7 +73,7 @@ describe('PWA Manifest', () => {
     expect(Array.isArray(manifest.shortcuts)).toBe(true);
     
     if (manifest.shortcuts.length > 0) {
-      manifest.shortcuts.forEach((shortcut: any) => {
+      manifest.shortcuts.forEach((shortcut: { name: string; url: string; description?: string }) => {
         expect(shortcut.name).toBeDefined();
         expect(shortcut.url).toBeDefined();
       });

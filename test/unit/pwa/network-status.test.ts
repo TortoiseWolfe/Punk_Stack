@@ -3,7 +3,7 @@ import { renderHook, act } from '@testing-library/react';
 import { useNetworkStatus } from '@/lib/hooks/useNetworkStatus';
 
 describe('useNetworkStatus', () => {
-  let originalNavigator: any;
+  let originalNavigator: typeof navigator;
   let onlineListeners: Array<() => void> = [];
   let offlineListeners: Array<() => void> = [];
 
@@ -19,18 +19,28 @@ describe('useNetworkStatus', () => {
       },
     });
 
-    // Mock window event listeners
-    vi.spyOn(window, 'addEventListener').mockImplementation((event: string, handler: any) => {
-      if (event === 'online') onlineListeners.push(handler);
-      if (event === 'offline') offlineListeners.push(handler);
+    // Mock window event listeners with proper typing
+    vi.spyOn(window, 'addEventListener').mockImplementation((
+      event: string, 
+      handler: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ) => {
+      const fn = typeof handler === 'function' ? handler : handler.handleEvent;
+      if (event === 'online') onlineListeners.push(fn as () => void);
+      if (event === 'offline') offlineListeners.push(fn as () => void);
     });
 
-    vi.spyOn(window, 'removeEventListener').mockImplementation((event: string, handler: any) => {
+    vi.spyOn(window, 'removeEventListener').mockImplementation((
+      event: string,
+      handler: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ) => {
+      const fn = typeof handler === 'function' ? handler : handler.handleEvent;
       if (event === 'online') {
-        onlineListeners = onlineListeners.filter(h => h !== handler);
+        onlineListeners = onlineListeners.filter(h => h !== fn);
       }
       if (event === 'offline') {
-        offlineListeners = offlineListeners.filter(h => h !== handler);
+        offlineListeners = offlineListeners.filter(h => h !== fn);
       }
     });
   });

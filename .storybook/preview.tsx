@@ -32,7 +32,7 @@ const preview: Preview = {
           <div className="min-h-screen bg-base-100">
             <div className="navbar bg-base-200 shadow-lg sticky top-0 z-50">
               <div className="flex-1">
-                <a href="/" className="btn btn-ghost text-xl font-bold">
+                <a href="../" className="btn btn-ghost text-xl font-bold">
                   ← Back to App
                 </a>
               </div>

@@ -119,7 +119,7 @@ describe('useTheme', () => {
 
   it('should handle missing localStorage gracefully', async () => {
     const originalLocalStorage = window.localStorage;
-    // @ts-ignore
+    // @ts-expect-error - Testing missing localStorage
     delete window.localStorage;
     
     const wrapper = ({ children }: { children: React.ReactNode }) => (

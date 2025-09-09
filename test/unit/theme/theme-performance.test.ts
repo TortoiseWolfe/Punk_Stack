@@ -12,12 +12,13 @@ describe('Theme System Performance', () => {
       url: 'http://localhost',
     });
     document = dom.window.document;
-    global.document = document as any;
+    global.document = document as unknown as Document;
     
-    // Mock performance API
-    performance = {
+    // Mock performance API with proper type
+    const mockPerformance: Partial<Performance> = {
       now: vi.fn().mockReturnValueOnce(0).mockReturnValueOnce(50), // 50ms switch time
-    } as any;
+    };
+    performance = mockPerformance as Performance;
     global.performance = performance;
   });
 

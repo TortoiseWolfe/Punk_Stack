@@ -3,8 +3,14 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { InstallPrompt } from '@/components/InstallPrompt';
 
 // PRP-02: PWA Installation Prompt Tests
+interface MockDeferredPrompt {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: string }>;
+  preventDefault: () => void;
+}
+
 describe('InstallPrompt', () => {
-  let mockDeferredPrompt: any;
+  let mockDeferredPrompt: MockDeferredPrompt;
 
   beforeEach(() => {
     // Clear localStorage
